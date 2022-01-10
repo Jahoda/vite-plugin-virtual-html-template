@@ -42,7 +42,7 @@ const virtualHtmlTemplatePlugin = (options) => {
       server.middlewares.use(async (req, res, next) => {
         const url = req._parsedUrl.pathname;
 
-        if (path.extname(url) !== '.html' && url !== '/') {
+        if (url === '/@vite/client' || (path.extname(url) !== '' && path.extname(url) !== '.html' && url !== '/')) {
           return next()
         }
 
